@@ -1,0 +1,75 @@
+########################################################
+Exportando as classes e importando em outro modulo
+
+ 1 - Serapara as classes Cliente e CC em arquivos "JS" diferentes
+
+ 2 - Informar que a classe vai ser exportado atraves da palavra reservada 'export'
+	 export class cliente {
+		nome;
+		cpf;
+
+	 }
+ 
+ 3 - Por padrão, quando pedimos a execução de um arquivo JavaScript com o Node, isso é feito como um script, sem identificar que estamos trabalhando com módulos. Portanto, teremos que passar essa informação ao interpretador do JavaScript.
+ 
+	PS H:\WebMaster\JS\senaicimatec\BankType\JS> node .\index.js
+	(node:6124) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+	(Use `node --trace-warnings ...` to show where the warning was created)
+	import { cliente } from "./cliente.js";
+	
+
+ 4 - Executar >
+		 # npm init
+		
+		This utility will walk you through creating a package.json file.
+		It only covers the most common items, and tries to guess sensible defaults.
+
+		See `npm help init` for definitive documentation on these fields
+		and exactly what they do.
+
+		Use `npm install <pkg>` afterwards to install a package and
+		save it as a dependency in the package.json file.
+
+		Press ^C at any time to quit.
+		package name: (js) BankType
+		Sorry, name can no longer contain capital letters.
+		package name: (js) banktype
+		version: (1.0.0)
+		description: Projeto do BankType
+		entry point: (index.js)
+		test command:
+		git repository: https://github.com/supertuxalone/BankType-JS-OO.git
+		keywords:
+		author: Eder Silva
+		license: (ISC)
+		About to write to H:\WebMaster\JS\senaicimatec\BankType\JS\package.json:
+
+		{
+		  "name": "banktype",
+		  "version": "1.0.0",
+		  "description": "Projeto do BankType",
+		  "main": "index.js",
+		  "scripts": {
+			"test": "echo \"Error: no test specified\" && exit 1"
+		  },
+		  "repository": {
+			"type": "git", 
+			
+		Um arquivo "package.json" será cirado !
+	
+ 5 -  Como no aviso do node "Warning: To load an ES module, set "type": "module"..."
+	Editar o arquivo "package.json"
+		e acrescentar a linha 
+			"type": "module",
+			
+ 6 - repetir o comando node .\index.js
+ 
+ 
+ O que aprendemos nessa aula:
+
+Package.json
+Modules
+import/export
+Quais as vantagens de ter um código onde usamos classes e composição ao invés de tipos primitivos
+Tipos de valor e tipos de referência
+Alterando dinamicamente um objeto

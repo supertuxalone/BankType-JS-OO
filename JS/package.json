@@ -1,0 +1,20 @@
+{
+  "name": "banktype",
+  "version": "1.0.0",
+  "description": "Projeto do BankType",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supertuxalone/BankType-JS-OO.git"
+  },
+  "author": "Eder Silva",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/supertuxalone/BankType-JS-OO/issues"
+  },
+  "homepage": "https://github.com/supertuxalone/BankType-JS-OO#readme"
+}

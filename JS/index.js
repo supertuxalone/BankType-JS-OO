@@ -1,46 +1,6 @@
-/* Classes definem uma forma de organizarmos uma série de informações repetidas no
- nosso código e por isso devemos usar elas quando temos código
-  que se repete e que faz parte de um contexto coeso. */
-class cliente {
-    nome;
-    cpf;
+import { CC } from "./cc.js";
+import { cliente } from "./cliente.js";
 
-}
-
-class CC {
-    agencia;
-    conta;
-    /* Colocaremos uma cerquilha (#) à frente do atributo saldo em 
-    todas as vez em que citamos esse atributo. 
-    Agora o nome da variável mudou para #saldo. 
-    Então this.#saldo significa que esse saldo é privado */
-    #saldo = 10000;
-
-    sacar(valor) {
-        /* acessar o saldo da própria conta-corrente a partir
-         da qual chamamos o método, ou seja, "esta" conta. Para isso,
-          usamos a palavra reservada this ("este(a)" em inglês). */
-        if (this.#saldo >= valor) {
-            this.#saldo -= valor;
-            console.log(this.#saldo + " = Saldo Privado sacado");
-            return valor;
-        }
-    }
-
-    depositar(valor) {
-        /* e valor é maior do que 0.
-        Em caso positivo, a atualização de this.saldo será permitida */
-        if (valor <= 0) return; {
-
-            this.#saldo += valor;
-            console.log(this.#saldo + " = Saldo Privado depositado");
-            return valor;
-        }
-
-
-    }
-
-}
 //CRIAÇÃO DAS CONSTANTE DE UM NOVO OBJETO CLIENTE
 const cliente1 = new cliente();
 cliente1.nome = "Eder";
@@ -50,23 +10,33 @@ const cliente2 = new cliente();
 cliente2.nome = "Marcia";
 cliente2.cpf = "232.445.498-50";
 
-//CRIAÇÃO DAS CONSTANTE DE UM NOVO OBJETO CC
+//CRIAÇÃO DA CONSTANTE contacli1 DE UM NOVO OBJETO CC
 const ccCliente1 = new CC();
 ccCliente1.agencia = 1324;
 ccCliente1.conta = "000124-5";
-ccCliente1.saldo = 5200;
+ccCliente1.cliente = cliente1;
+ccCliente1.depositar(500);
 
-//DEPOSITO NA CONTA
-//console.log(ccCliente1.saldo);
-var valordepositado = ccCliente1.depositar(100);
-//console.log(ccCliente1.saldo);
-var valorsacado = ccCliente1.sacar(50);
+//DEPOSITO NA CONTA cli1
+// var valordepositado = ccCliente1.depositar(100);
+// var valorsacado = ccCliente1.sacar(50);
 
-/* cliente2.agencia = 1324;
-cliente2.conta = "005541-5";
-cliente2.saldo = "0.0"; 
- */
-console.log(valordepositado + " = Valor Depositado");
-console.log(valorsacado + " = Valor Sacado");
+//CRIAÇÃO DA CONSTANTE contacli1 DE UM NOVO OBJETO CC
+const ccCliente2 = new CC();
+//atributo cliente na classe ContaCorrente
+ccCliente2.cliente = cliente2;
+ccCliente2.agencia = 1245;
+ccCliente2.conta = "001254-8";
 
+//Deposito na Conta cli2
+//var valordepositado = ccCliente2.depositar(500);
+
+/* console.log(valordepositado + " = Valor Depositado");
+console.log(valorsacado + " = Valor Sacado"); */
+
+let valor = 200
+//trabalhando diretamente com a referência ao objeto conta, e não uma cópia dele
+ccCliente1.transferir(valor, ccCliente2);
 console.log(ccCliente1);
+console.log(ccCliente2);
+
