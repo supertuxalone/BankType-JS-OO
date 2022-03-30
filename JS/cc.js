@@ -1,13 +1,31 @@
+import { cliente } from "./cliente.js";
+
 export class CC {
     agencia;
     conta;
-    cliente;
-    
+    _cliente;
+
     /* Colocaremos uma cerquilha (#) à frente do atributo saldo em 
     todas as vez em que citamos esse atributo. 
     Agora o nome da variável mudou para #saldo. 
     Então this.#saldo significa que esse saldo é privado */
     _saldo = 0;
+
+    //colocando um valor no cliente 
+    set cliente(novoValor) {
+        //ó será feita se ele for uma instância de cliente
+        if (novoValor instanceof cliente) {
+            this._cliente = novoValor;
+        }
+    }
+    //atribuidor "get" de acesso 
+    get cliente() {
+        return this._cliente;
+    }
+
+    get saldo() {
+        return this._saldo;
+    } 
 
     sacar(valor) {
         /* acessar o saldo da própria conta-corrente a partir
@@ -25,20 +43,20 @@ export class CC {
         Em caso positivo, a atualização de this.saldo será permitida */
         if (valor <= 0) return; {
 
-            console.log(this._saldo + " = Saldo que tava :");            
+            console.log(this._saldo + " = Saldo que tava :");
             this._saldo += valor;
             return valor;
         }
 
     }
 
-    transferir(valor, conta){
+    transferir(valor, conta) {
         const iconta = this.conta;
         const valortransferido = this.sacar(valor);
         conta.depositar(valortransferido);
-        console.log(valor + " = Valor a Transferir");        
+        console.log(valor + " = Valor a Transferir");
         console.log(iconta + " = Conta a Transferir >>");
-        console.log(" ----------------------- ");        
+        console.log(" ----------------------- ");
         console.log(valortransferido + " = Valor Transferido <<");
 
     }
