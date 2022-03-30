@@ -3,7 +3,6 @@ export class conta {
         this._saldo = saldoInicial;
         this._cliente = cliente;
         this._agencia = agencia;
-        this._tipo = tipo;
     }
 
     sacar(valor) {
