@@ -1,0 +1,9 @@
+#######################################################
+CONSTRUTORES E ESTATICOS 
+
+O que aprendemos nessa aula:
+
+Construtores
+Encapsulamento
+Atributos "readonly"
+Atributos estáticos

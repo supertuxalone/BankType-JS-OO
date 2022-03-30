@@ -1,10 +1,10 @@
 import { cliente } from "./cliente.js";
 
 export class CC {
+    static nroContaCC = 0;
     agencia;
     conta;
     _cliente;
-
     /* Colocaremos uma cerquilha (#) à frente do atributo saldo em 
     todas as vez em que citamos esse atributo. 
     Agora o nome da variável mudou para #saldo. 
@@ -25,7 +25,14 @@ export class CC {
 
     get saldo() {
         return this._saldo;
-    } 
+    }
+
+    constructor(agencia, cliente) {
+        this.cliente = cliente;
+        this.agencia = agencia;
+        //CONTABILIZA O NUMERO DE CONTAS CRIADAS
+        CC.nroContaCC  += 1;
+    }
 
     sacar(valor) {
         /* acessar o saldo da própria conta-corrente a partir
