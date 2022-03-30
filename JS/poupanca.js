@@ -1,37 +1,10 @@
-import { cliente } from "./cliente.js";
-
-export class CC {
-    static nroContaCC = 0;
-       
-    /* Colocaremos uma cerquilha (#) à frente do atributo saldo em 
-    todas as vez em que citamos esse atributo. 
-    Agora o nome da variável mudou para #saldo. 
-    Então this.#saldo significa que esse saldo é privado */
-   
-    //colocando um valor no cliente 
-    set cliente(novoValor) {
-        //ó será feita se ele for uma instância de cliente
-        if (novoValor instanceof cliente) {
-            this._cliente = novoValor;
-        }
+export class ccpoupanca{
+    constructor(saldoInicial, cliente, agencia){
+        this._saldo = saldoInicial;
+        this._cliente = cliente;
+        this._agencia = agencia;
     }
-    //atribuidor "get" de acesso 
-    get cliente() {
-        return this._cliente;
-    }
-
-    get saldo() {
-        return this._saldo;
-    }
-
-    constructor(agencia, cliente) {
-        this.cliente = cliente;
-        this.agencia = agencia;
-        this._saldo = 0;
-        //CONTABILIZA O NUMERO DE CONTAS CRIADAS
-        CC.nroContaCC  += 1;
-    }
-
+    
     sacar(valor) {
         /* acessar o saldo da própria conta-corrente a partir
          da qual chamamos o método, ou seja, "esta" conta. Para isso,
@@ -66,4 +39,6 @@ export class CC {
 
     }
 
+    
 }
+

@@ -1,5 +1,7 @@
 import { CC } from "./cc.js";
 import { cliente } from "./cliente.js";
+import { ccpoupanca } from "./poupanca.js";
+import { conta } from "./conta.js";
 
 /* CRIAÇÃO DAS CONSTANTE DE UM NOVO OBJETO CLIENTES, 
 passando por parametros, para o constructor da class cliente fazer isso por nós  
@@ -9,21 +11,12 @@ const cliente2 = new cliente("Marcia", "225.112.114-02");
 
 let nroconta = 0;
 //CRIAÇÃO DA CONSTANTE contacli1 DE UM NOVO OBJETO CC
-const ccCliente1 = new CC(1324, cliente1);
+const ccCliente1 = new conta(0, cliente1, 1005, 1);
+ccCliente1.depositar(1000);
+ccCliente1.sacar(100);
 
-ccCliente1.depositar(500);
-
-//CRIAÇÃO DA CONSTANTE contacli1 DE UM NOVO OBJETO CC
-const ccCliente2 = new CC(1245, cliente2);
-new CC(1245, cliente2);
-new CC(1245, cliente2);
-new CC(1245, cliente2);
-new CC(1245, cliente2);
-
-let valor = 200
-//trabalhando diretamente com a referência ao objeto conta, e não uma cópia dele
-ccCliente1.transferir(valor, ccCliente2);
+const ccPoupanca = new conta(50, cliente1, 1001);
 
 console.log(ccCliente1);
-console.log(CC.nroContaCC);
+console.log(ccPoupanca);
 
