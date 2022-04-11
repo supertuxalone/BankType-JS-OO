@@ -10,10 +10,10 @@ export class CC extends conta {
 
     /* NESSE METODO TESTE, EXISTE A PALAVRA RESERVADO "SUPER" QUE AO SER 
     INVOCADA SOBRESCREVE, AO METODO PASSADO EXISTENTE ANTERIOMENTE*/
-    teste() {
+   /*  teste() {
         super.teste();
         console.log("teste de Super metodo");
-    }
+    } */
 
     sacar(valor) {
         let taxa = 1.1;

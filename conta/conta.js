@@ -11,7 +11,7 @@ export class conta {
     }
 
     //colocando um valor no cliente 
-     set cliente(novoValor) {
+    set cliente(novoValor) {
         //ó será feita se ele for uma instância de cliente
         if (novoValor instanceof cliente) {
             this._cliente = novoValor;
@@ -28,10 +28,10 @@ export class conta {
 
     //esse metodo da sacar da conta
     sacar(valor) {
-        throw new Error("Metodo Abstrato, não invocado")        
+        throw new Error("Metodo Abstrato, não invocado")
     }
 
-    _sacar(valor, taxa){
+    _sacar(valor, taxa) {
         const valorSacado = taxa * valor;
         /* acessar o saldo da própria conta-corrente a partir
         da qual chamamos o método, ou seja, "esta" conta. Para isso,
@@ -41,18 +41,12 @@ export class conta {
             // console.log(this.#saldo + " = Saldo Privado sacado");
             return valorSacado;
         }
-     }
+    }
 
     depositar(valor) {
         /* e valor é maior do que 0.
         Em caso positivo, a atualização de this.saldo será permitida */
-        if (valor <= 0) return; {
-
-            console.log(this._saldo + " = Saldo que tava :");
-            this._saldo += valor;
-            return valor;
-        }
-
+        this._saldo += valor;
     }
 
     transferir(valor, conta) {

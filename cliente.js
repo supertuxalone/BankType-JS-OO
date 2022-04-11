@@ -3,12 +3,18 @@
   que se repete e que faz parte de um contexto coeso. */
   export class cliente {
     get cpf(){
-      this._cpf;
+      return this._cpf;
     }
     //recebe, os atributos que a classe precisa para criar um objeto
-    constructor(nome, cpf){
+    constructor(nome, cpf, senha){
       this.nome = nome;
       this._cpf = cpf;
+      this._senha = senha;
     }
+
+    autenticar(){
+      return true;
+    }
+
 }
 
